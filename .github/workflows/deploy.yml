@@ -21,4 +21,4 @@ jobs:
 
     - name: SSH ile deploy scriptini çalıştır
       run: |
-        ssh -i ~/.ssh/id_ed25519 ubuntu@34.34.178.121 "bash /home/ubuntu/deploy.sh"
+        ssh -i ~/.ssh/id_ed25519 ckryusuff2@34.34.178.121 "bash /home/ckryusuff2/deploy.sh"
