@@ -50,6 +50,7 @@ pipeline {
 					argocd login 34.34.151.124:32603 --username admin --password $(kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d) --insecure
 					argocd app sync gitopsapp
 					'''
+					}
 				}
 			}
 		}
