@@ -47,7 +47,11 @@ pipeline {
 	}
     stage('Load Image to Minikube') {
         steps {
-            sh 'kubectl apply -f k8s/deployment.yaml'
+            script {
+                kubeconfig(credentialsId: 'kubeconfig', serverUrl: 'https://192.168.49.2:8443') {
+                    sh 'kubectl apply -f k8s/deployment.yaml'
+                }
+            }
         }
     }
   }
