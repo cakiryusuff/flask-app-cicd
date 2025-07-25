@@ -34,14 +34,9 @@ pipeline {
       }
     }
     stage('Load Image to Minikube') {
-      steps {
-        script {
-          echo 'Loading Docker image to Minikube...'
-          // Minikube docker ortamına erişimin varsa:
-          sh "minikube image load ${DOCKER_HUB_REPO}:latest"
-          // Eğer Jenkins container içinden çalışıyorsan minikube docker socket mount lazım.
+        steps {
+            sh 'kubectl apply -f k8s/deployment.yaml'
         }
-      }
     }
   }
 }
